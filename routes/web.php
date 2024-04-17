@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeControler;
 use App\Http\Controllers\PostControler;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Ruta para el controlador de posts
-Route::get('/posts', [PostControler::class, 'index']);
+Route::get('/', HomeControler::class);  //Mostrar la vista de inicio
 
 //ruta para mostrar el listado de registro 
 Route::get('/posts',[PostControler::class, 'index'])
@@ -45,8 +45,40 @@ Route::put('/posts/{post}', [PostControler::class, 'update'])
 Route::delete('/posts/{post}', [PostControler::class, 'destroy'])
         ->name('posts.destroy');
 
+/*2controladores 
+php artisan make:controller NombreController (PostControler)
+Controlador para cada ruta 
 
-/*
+
+Route::resource('post', PostController::class)
+        ->only['index', 'show'];
+
+Route::resource('articuler', UserController::class)
+        ->parameters(['articuler' => 'post'])
+        ->names('post');
+
+route resource, agrupar rutas
+grupo de rutas 
+    Route::prefix('posts')->name('post.')->controller(PostController::class)->group(funtion(){
+        Route::get('/', 'index')
+                ->name('index');
+        Route::get('/create, 'create')
+                ->name('create');
+        Route::post('/', 'store')
+                ->name('store');
+        Route::get('/{post}', 'show')
+                ->name('show');
+        Route::get('/{post}/edit', 'edit')  
+                ->name('edit');
+        Route::put('/{post}', 'update') 
+                ->name('update');
+        Route::delete('/{post}', 'destroy') 
+                ->name('destroy');
+    });
+
+*/
+
+/*1
 route::get('/saludo/{curso}', function($curso){
     return "Saludos desde $curso";
 })->whereAlphaNumeric('curso');
@@ -69,11 +101,4 @@ comando artisan -> php artisan route:list, r:l; ver todas las rutas
 las rutas estan protegidos por el middleware web, se pueden proteger con el middleware auth
 )->name('cursos.show'); nombre de la ruta
 rutas con parametros -> route('cursos.show', 4)
-*/ 
-
-/*controladores 
-php artisan make:controller NombreController (PostControler)
-Controlador para cada ruta 
-
-
 */ 
