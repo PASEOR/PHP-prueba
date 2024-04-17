@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostControler;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,46 +14,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return "hola paco del inicio";
-    //return view('welcome');
-});
+//Ruta para el controlador de posts
+Route::get('/posts', [PostControler::class, 'index']);
 
 //ruta para mostrar el listado de registro 
-Route::get('/posts', function(){
-    return "hola desde la pagina de posts";
-});
+Route::get('/posts',[PostControler::class, 'index'])
+        ->name('posts.index');
 
 //ruta para mostrar un formulario para crear un nuevo registro
-Route::get('/posts/create', function(){
-    return "aqui se muestra el formulario para crear un post";
-});
+Route::get('/posts/create', [PostControler::class, 'create'])
+        ->name('posts.create');
 
 //ruta para guardar el registro
-Route::post('/posts', function(){
-    return "aqui se guarda el post";
-});
+Route::post('/posts', [PostControler::class, 'store'])
+        ->name('posts.store');
 
 //ruta para mostrar un registro
-Route::get('/posts/{post}', function($post){
-    return "aqui se muestra el post: $post";
-});
+Route::get("/posts/{post}", [PostControler::class, 'show'])
+        ->name('posts.show');
 
 //ruta para mostrar un formulario para editar un registro
-Route::get('/posts/{post}/edit', function($post){
-    return "aqui se muestra el formulario para editar el post : $post";
-});
+Route::get('/posts/{post}/edit', [PostControler::class, 'edit'])
+        ->name('posts.edit');
 
 //ruta para actualizar un registro
-Route::put('/posts/{post}', function($post){
-    return "aqui se actualiza el post: $post";
-});
+Route::put('/posts/{post}', [PostControler::class, 'update'])
+        ->name('posts.update');
 
 //ruta para eliminar un registro
-Route::delete('/posts/{post}', function($post){
-    return "aqui se elimina el post: $post";
-});
-
+Route::delete('/posts/{post}', [PostControler::class, 'destroy'])
+        ->name('posts.destroy');
 
 
 /*
@@ -78,4 +69,11 @@ comando artisan -> php artisan route:list, r:l; ver todas las rutas
 las rutas estan protegidos por el middleware web, se pueden proteger con el middleware auth
 )->name('cursos.show'); nombre de la ruta
 rutas con parametros -> route('cursos.show', 4)
+*/ 
+
+/*controladores 
+php artisan make:controller NombreController (PostControler)
+Controlador para cada ruta 
+
+
 */ 
