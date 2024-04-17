@@ -14,9 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "hola paco";
+    //return view('welcome');
 });
 
-Route::get('/about', function () {
-    return view('about');
+Route::get('/contacto', function () {
+    return "Esta es la página de contacto";
+    //return view('contacto');
 });
+
+/*
+Route -> clase
+metodo -> get , post (formulario),  
+uri -> slash
+funcition -> que es lo que quiero mostar 
+*/ 
