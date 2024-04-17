@@ -23,7 +23,9 @@ class RouteServiceProvider extends ServiceProvider
      * Define your route model bindings, pattern filters, and other route configuration.
      */
     public function boot(): void
-    {
+    {   
+        Route::pattern('tic', '[0-9]+');
+
         $this->configureRateLimiting();
 
         $this->routes(function () {

@@ -23,12 +23,20 @@ Route::get('/contacto', function () {
     //return view('contacto');
 });
 
-route::get('/saludo/{curso}', function($curso){
-    return "Saludos desde $curso";
+/*Route::get('/cursos/informacion', function () {
+    return "Informacion del curso";
+});
+*/
+Route::get('/cursos/{tic}', function ($tic) {
+    return "Bienvenido al curso $tic";
 });
 
-
-
+/*
+route::get('/saludo/{curso}', function($curso){
+    return "Saludos desde $curso";
+})->whereAlphaNumeric('curso');
+//->where('curso', '[A-Za-z]+');
+*/
 
 /*
 Route -> clase
@@ -36,4 +44,6 @@ metodo -> get , post (formulario),
 uri -> slash
 funcition -> que es lo que quiero mostar 
 rutas dinamicas -> /contacto/{nombre} funtion($nombre) 
+ruta opcional -> /contacto/{nombre}{category?}, funtion($nombre, $category = null)
+
 */ 
