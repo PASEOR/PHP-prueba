@@ -26,6 +26,11 @@ class RouteServiceProvider extends ServiceProvider
     {   
         Route::pattern('tic', '[0-9]+');
 
+        /*Route::resourceVerbs([
+            'create' => 'crear',
+            'edit' => 'editar',
+        ]); */
+
         $this->configureRateLimiting();
 
         $this->routes(function () {
