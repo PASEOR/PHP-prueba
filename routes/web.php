@@ -14,22 +14,46 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return "hola paco";
+    return "hola paco del inicio";
     //return view('welcome');
 });
 
-Route::get('/contacto', function () {
-    return "Esta es la página de contacto";
-    //return view('contacto');
+//ruta para mostrar el listado de registro 
+Route::get('/posts', function(){
+    return "hola desde la pagina de posts";
 });
 
-Route::get('/cursos/informacion', function () {
-    return "Informacion del curso";
+//ruta para mostrar un formulario para crear un nuevo registro
+Route::get('/posts/create', function(){
+    return "aqui se muestra el formulario para crear un post";
 });
 
-Route::get('/cursos/{tic}', function ($tic) {
-    return "Bienvenido al curso $tic";
+//ruta para guardar el registro
+Route::post('/posts', function(){
+    return "aqui se guarda el post";
 });
+
+//ruta para mostrar un registro
+Route::get('/posts/{post}', function($post){
+    return "aqui se muestra el post: $post";
+});
+
+//ruta para mostrar un formulario para editar un registro
+Route::get('/posts/{post}/edit', function($post){
+    return "aqui se muestra el formulario para editar el post : $post";
+});
+
+//ruta para actualizar un registro
+Route::put('/posts/{post}', function($post){
+    return "aqui se actualiza el post: $post";
+});
+
+//ruta para eliminar un registro
+Route::delete('/posts/{post}', function($post){
+    return "aqui se elimina el post: $post";
+});
+
+
 
 /*
 route::get('/saludo/{curso}', function($curso){
@@ -41,6 +65,7 @@ route::get('/saludo/{curso}', function($curso){
 /*
 Route -> clase
 metodo -> get , post (formulario),  
+metodo -> put (actualizar), delete (eliminar)
 uri -> slash
 funcition -> que es lo que quiero mostar 
 rutas dinamicas -> /contacto/{nombre} funtion($nombre) 
@@ -48,6 +73,9 @@ ruta opcional -> /contacto/{nombre}{category?}, funtion($nombre, $category = nul
 comando artisan -> php artisan route:list, r:l; ver todas las rutas
             ->php artisan r:l --path=api, ver las rutas de la api
             ->php artisan r:l --except-vendor, only-vendor
-            -> php artisan route:clear, r:c; limpiar cache de rutas
+            ->php artisan -route:cache; cache de rutas
+            -> php artisan route:clear; limpiar cache de rutas
 las rutas estan protegidos por el middleware web, se pueden proteger con el middleware auth
+)->name('cursos.show'); nombre de la ruta
+rutas con parametros -> route('cursos.show', 4)
 */ 
