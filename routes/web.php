@@ -23,9 +23,17 @@ Route::get('/contacto', function () {
     //return view('contacto');
 });
 
+route::get('/saludo/{curso}', function($curso){
+    return "Saludos desde $curso";
+});
+
+
+
+
 /*
 Route -> clase
 metodo -> get , post (formulario),  
 uri -> slash
 funcition -> que es lo que quiero mostar 
+rutas dinamicas -> /contacto/{nombre} funtion($nombre) 
 */ 
