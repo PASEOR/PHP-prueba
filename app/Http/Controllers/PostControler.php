@@ -19,11 +19,11 @@ class PostControler extends Controller
     }
 
     public function show($post){
-        return view('posts.show');
+        return view('posts.show', compact('post'));
+        /*compact('post') es igual a array('post' => $post)*/
     }
-
     public function edit($post){
-        return view('posts.edit');
+        return view('posts.edit', compact('post'));
     }
     public function update(Request $request, $post){
         return "aqui se actualiza el post: $post";
