@@ -45,7 +45,18 @@ Route::put('/posts/{post}', [PostControler::class, 'update'])
 Route::delete('/posts/{post}', [PostControler::class, 'destroy'])
         ->name('posts.destroy');
 
-/*2controladores 
+
+/*3 vistas resource -> views 
+    todas las extensiones creadas deben ir con .blade.php
+
+
+    
+*/
+
+
+
+
+        /*2controladores 
 php artisan make:controller NombreController (PostControler)
 Controlador para cada ruta 
 
