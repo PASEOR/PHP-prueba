@@ -49,7 +49,7 @@ Route::delete('/posts/{post}', [PostControler::class, 'destroy'])
 /*3 vistas resource -> views 
     todas las extensiones creadas deben ir con .blade.php
 
-
+        php artisan make:provider ViewServiceProvider  -> provider para vistas
     
 */
 
