@@ -9,11 +9,36 @@
 <body>
     <h1>listado de Posts</h1>
 
-    <script>
-        //let Posts = {!! json_encode($posts) !!};
-        let Posts = @json($posts);
-        console.log(Posts);
-    </script>
+    <!-- directiva de blade condicionales, if -->
+
+    @if(false)
+        <p>Esto se va a mostrar si la condicion es verdadera</p>
+
+    @else
+
+        <p>Esto se va a mostrar si la condicion es falsa</p>
+
+    @endif
+
+    <!-- directiva de blade condicionales unless contraria a if -->
+    @unless (true)
+        <p>le has pasado el valor de false a la directiva unless </p>
+    @endunless
+
+    <!-- directiva de blade condicionales isset -->
+    @isset($record)
+        <p>la variable $record esta definida y no es null</p>    
+        
+    @else
+        <p>la variable no existe o no tiene un valor asignado</p>
+
+    @endisset
+
+    <!-- directiva de blade condicionales empty --> 
+    @empty($valor_null)        
+        <p>la variable no existe o no tiene un valor asignado </p>
+        
+    @endempty
 
 </body>
 </html>
