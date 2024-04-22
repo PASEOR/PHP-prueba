@@ -9,36 +9,19 @@
 <body>
     <h1>listado de Posts</h1>
 
-    <!-- directiva de blade condicionales, if -->
+    <!--entrono local y de produccion -->
+    <!-- .env cambiar el entorno de local a production-->
+    @env('local')
+        <p>Estamos en el entorno local</p>
+    @endenv
 
-    @if(false)
-        <p>Esto se va a mostrar si la condicion es verdadera</p>
+    <!--env('production')
+        <p>Estamos en el entorno de produccion</p>
+    endenv -->
 
-    @else
-
-        <p>Esto se va a mostrar si la condicion es falsa</p>
-
-    @endif
-
-    <!-- directiva de blade condicionales unless contraria a if -->
-    @unless (true)
-        <p>le has pasado el valor de false a la directiva unless </p>
-    @endunless
-
-    <!-- directiva de blade condicionales isset -->
-    @isset($record)
-        <p>la variable $record esta definida y no es null</p>    
-        
-    @else
-        <p>la variable no existe o no tiene un valor asignado</p>
-
-    @endisset
-
-    <!-- directiva de blade condicionales empty --> 
-    @empty($valor_null)        
-        <p>la variable no existe o no tiene un valor asignado </p>
-        
-    @endempty
+    @production
+        <p>Estamos en el entorno de produccion</p>
+    @endproduction
 
 </body>
 </html>
