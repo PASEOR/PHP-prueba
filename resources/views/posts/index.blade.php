@@ -9,8 +9,11 @@
 <body>
     <h1>listado de Posts</h1>
 
-    {{$prueba}}
-    @{{$prueba}} <!-- debe interpretar una variable javascript -->
+    <script>
+        //let Posts = {!! json_encode($posts) !!};
+        let Posts = @json($posts);
+        console.log(Posts);
+    </script>
 
 </body>
 </html>
