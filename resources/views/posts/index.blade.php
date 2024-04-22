@@ -8,5 +8,9 @@
 </head>
 <body>
     <h1>listado de Posts</h1>
+
+    {{$prueba}}
+    @{{$prueba}} <!-- debe interpretar una variable javascript -->
+
 </body>
 </html>
