@@ -9,19 +9,34 @@
 <body>
     <h1>listado de Posts</h1>
 
-    <!--entrono local y de produccion -->
-    <!-- .env cambiar el entorno de local a production-->
-    @env('local')
-        <p>Estamos en el entorno local</p>
-    @endenv
-
-    <!--env('production')
-        <p>Estamos en el entorno de produccion</p>
-    endenv -->
-
-    @production
-        <p>Estamos en el entorno de produccion</p>
-    @endproduction
+    <!-- switch  -->
+    
+    @switch($dia)
+        @case(1)
+            <p>Lunes</p>
+        @break
+        @case(2)
+            <p>Martes</p>
+         @break
+        @case(3)
+            <p>Miercoles</p>
+        @break
+        @case(4) 
+            <p>Jueves</p>
+        @break    
+        @case(5)
+            <p>Viernes</p>
+        @break
+        @case(6)    
+            <p>Sabado</p>    
+        @break 
+        @case(7)    
+            <p>Domingo</p>
+        @break 
+        @default
+            <p>no es un dia de la semana</p>
+            
+    @endswitch
 
 </body>
 </html>

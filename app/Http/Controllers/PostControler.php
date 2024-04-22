@@ -14,9 +14,9 @@ class PostControler extends Controller
             ["tile" => "post 3", "content" => "contenido del post 3"]
         ];
 
-        $valor_null = null;
+        $dia = 5;
 
-        return view('posts.index', compact("posts","valor_null"));
+        return view('posts.index', compact("posts","dia"));
     }
 
     public function create(){
