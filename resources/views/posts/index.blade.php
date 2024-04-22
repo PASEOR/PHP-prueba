@@ -9,9 +9,9 @@
 <body>
     <h1>listado de Posts</h1>
 
-    <!-- iterar el array  -->
+    <!-- iterar el array, recuperar de la base de datos  -->
     <ul>
-    @foreach ($posts as $item)
+    @forelse ($posts as $item)
         <li>
             <h2>
                 {{$item['title']}}
@@ -21,7 +21,9 @@
                 {{$item['content']}}
             </p>
         </li>
-    @endforeach
+    @empty
+        <li>No hay posts para mostrar</li>
+    @endforelse
     </ul>
 
 </body>
