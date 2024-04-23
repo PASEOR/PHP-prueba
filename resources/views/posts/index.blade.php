@@ -9,30 +9,32 @@
 <body>
     <h1>listado de Posts</h1>
 
-    <!-- for, whie  -->
+    <!-- continue y break -->
     
-    {{--@for ($i = 1; $i <= $count; $i++)  
-    <p>
-        @for ($j = 1; $j <= $i; $j++)
-            *
-        @endfor        
-    </p>
+    {{--
+    @for ($i = 0; $i < $count; $i++)
+        <!--@if ($i % 3 == 0)
+            @continue
+        @endif--}
+        @continue($i % 3 == 0)
+
+        <p>{{ $i }}</p>
+        
     @endfor--}}
 
-    @php
-        $i = 1;
-    @endphp
-    @while ($i <= $count)
-        <p>
-            *
-        </p>
-        
-        @php
-            $i++;
-        @endphp
-        
-    @endwhile
+    @for ($i = 0; $i < $count; $i++)
+
+        @break($i == 8)
+
+        <p>{{ $i }}</p>
     
+    @endfor
+    
+    <p>
+        <b>
+            saliste del bucle
+        </b>
+    </p>
 
 </body>
 </html>
