@@ -9,22 +9,30 @@
 <body>
     <h1>listado de Posts</h1>
 
-    <!-- iterar el array, recuperar de la base de datos  -->
-    <ul>
-    @forelse ($posts as $item)
-        <li>
-            <h2>
-                {{$item['title']}}
-            </h2>
+    <!-- for, whie  -->
+    
+    {{--@for ($i = 1; $i <= $count; $i++)  
+    <p>
+        @for ($j = 1; $j <= $i; $j++)
+            *
+        @endfor        
+    </p>
+    @endfor--}}
 
-            <p>
-                {{$item['content']}}
-            </p>
-        </li>
-    @empty
-        <li>No hay posts para mostrar</li>
-    @endforelse
-    </ul>
+    @php
+        $i = 1;
+    @endphp
+    @while ($i <= $count)
+        <p>
+            *
+        </p>
+        
+        @php
+            $i++;
+        @endphp
+        
+    @endwhile
+    
 
 </body>
 </html>
