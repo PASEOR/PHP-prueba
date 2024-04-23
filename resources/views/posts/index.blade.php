@@ -9,32 +9,34 @@
 <body>
     <h1>listado de Posts</h1>
 
-    <!-- continue y break -->
+    <!-- loop -->
     
-    {{--
-    @for ($i = 0; $i < $count; $i++)
-        <!--@if ($i % 3 == 0)
-            @continue
-        @endif--}
-        @continue($i % 3 == 0)
+    <ul>
 
-        <p>{{ $i }}</p>
-        
-    @endfor--}}
+        @foreach ($posts as $post)
+        <li>
+            <h2>
+                {{ $post['title']}}
 
-    @for ($i = 0; $i < $count; $i++)
+                (Indice restantes: {{$loop->remaining}})
 
-        @break($i == 8)
+            </h2>
+            <p>
+                {{ $post["content"]}}
+            </p>
+            <ul>
+                @foreach ($post["tags"] as $tag)
+                    <li>{{ $tag }}
+                        
+                        @if ($loop->parent->first)
+                            (este es el primer tag del post)
+                        @endif
+                    </li>
+                @endforeach
+            </ul>
 
-        <p>{{ $i }}</p>
-    
-    @endfor
-    
-    <p>
-        <b>
-            saliste del bucle
-        </b>
-    </p>
-
+        @endforeach
+        </li>
+    </ul>
 </body>
 </html>
