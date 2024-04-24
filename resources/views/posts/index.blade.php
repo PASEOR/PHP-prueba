@@ -10,27 +10,23 @@
 
 </head>
 <body>
-    <!--  componente de clase-->
-
-    @php
-        $type = 'error';  // :type="info"
-    @endphp
-
-    <div class="container mx-auto py-12">
+    <!--  componentes anonimos solo componente de vista-->
+    <x-container width="7xl">
     
-        <x-alert type="info"> {{--atributos--}}
+        <x-alert class="mb-32" type="danger">   <!--atributos-->
 
             <x-slot name="title"> {{--slot datos largos--}}
-                Error 
+                Titulo de prueba 
             </x-slot>
-            
-                    Hola Mundo {{--slot principal--}}
+
+            change a few things up and try submitting again. {{--slot principal--}}
         </x-alert>
 
         <p>
-            hola mundo
+            hola mundos
         </p>
     
-    </div>
+    </x-container>
 </body>
+
 </html>
