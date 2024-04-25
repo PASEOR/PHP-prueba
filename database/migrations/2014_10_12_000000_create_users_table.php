@@ -34,12 +34,15 @@ return new class extends Migration
 
 /*MIGRACIONES
  comando: php artisan migrate 
-
- php artisan migrate:rollback -> ultimo lote que se ha ejecutado 
-
  php artisan make:migration create_posts_table -> crea una migracion con el nombre de la tabla a crear, en este caso "posts"
 
+ comandos destructivos (eliminan regristros reales )
+ php artisan migrate:rollback -> ultimo lote que se ha ejecutado 
  php artisan migrate:refresh -> elimina todas las tablas y las vuelve a crear, pero no elimina las tablas que no se han creado con migraciones 
  php artisan migrate:fresh -> elimina todas las tablas y las vuelve a crear, 
+
+comandos para crear migraciones
+ php artisan make:migration add_slug_to_posts_table
+
 
 */
