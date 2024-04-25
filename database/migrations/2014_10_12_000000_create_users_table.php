@@ -30,3 +30,9 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
+
+/*MIGRACIONES
+ comando: php artisan migrate 
+
+ php artisan migrate:rollback -> ultimo lote que se ha ejecutado 
+*/
