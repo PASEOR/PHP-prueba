@@ -44,5 +44,6 @@ return new class extends Migration
 comandos para crear migraciones
  php artisan make:migration add_slug_to_posts_table
 
+ eliminar tabla
 
 */
