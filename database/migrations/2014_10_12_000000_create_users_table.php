@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string("last_mane")->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -35,4 +36,10 @@ return new class extends Migration
  comando: php artisan migrate 
 
  php artisan migrate:rollback -> ultimo lote que se ha ejecutado 
+
+ php artisan make:migration create_posts_table -> crea una migracion con el nombre de la tabla a crear, en este caso "posts"
+
+ php artisan migrate:refresh -> elimina todas las tablas y las vuelve a crear, pero no elimina las tablas que no se han creado con migraciones 
+ php artisan migrate:fresh -> elimina todas las tablas y las vuelve a crear, 
+
 */
