@@ -1,5 +1,10 @@
-<x-app-layout>
-    <!--  componentes como plantilla-->
+@extends('layouts.app2')
+
+{{--modificar los valores con section--}}
+
+@section('title', "coders free")
+    
+@section("content")
     <x-container width="7xl">
     
         <x-alert class="mb-32" type="info">  
@@ -13,5 +18,7 @@
 
     
     </x-container>
+@endsection
 
-</x-app-layout>
+
+
