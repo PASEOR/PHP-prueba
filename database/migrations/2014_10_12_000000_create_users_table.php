@@ -45,5 +45,28 @@ comandos para crear migraciones
  php artisan make:migration add_slug_to_posts_table
 
  eliminar tabla
+ crear migracion para eliminar una tabla
+php artisan make:migration drop_posts_table
+
+tipo de datos
+ enteros
+  $table->interger("nombre") / bigInterger
+  $table->boolean ("is_active")
+  $table->dateTime("date") ->/ fechas y hora // date o time 
+  $table->decimal("amount", 8, 2) // 8 digitos y 2 decimales
+  $table->double("amount", 8, 2) // 8 digitos y 2 decimales
+  $table->enum("status",["active","inactive"]) // solo puede tener uno de los valores del array
+  $table->float("amount", 8, 2) // 8 digitos y 2 decimales
+  $table->foreignId("category_id") // entero grande sin signo, llave foranea a otra tabla
+  $table->id() // entero grande sin signo, autoincremental, llave primaria
+  $table->json("data") almacenar un array
+  $table->string("name",100) // cadena de texto de 100 caracteres hasta 255
+  $table->text("description") // texto largo 65535 characters
+  $table->mediumText("content") // texto medio 16777215
+  $table->longText("content") // texto muy largo 4294967295
+  $table->morphs("taggable")  // relaciones polimorficas 
+  $table->timestamp("created_at") // fecha y hora actual en el servidor
+                                // por defecto con timezone
+
 
 */
