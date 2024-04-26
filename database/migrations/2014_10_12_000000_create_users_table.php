@@ -67,6 +67,41 @@ tipo de datos
   $table->morphs("taggable")  // relaciones polimorficas 
   $table->timestamp("created_at") // fecha y hora actual en el servidor
                                 // por defecto con timezone
+modificadores de columna
+
+    $table->string("name",100)
+        ->default("pablo ");    // valor por defecto si no hay nada
+    $table->boolean("is_active")    
+        ->default(false);
+    $table->text("description")
+        ->nullable(); // puede ser nulo o no
+    $table->interger("edad")
+        ->unsigned(); // solo valores positivos
+    $table->timestamp("publisehd_at")
+        ->useCurrent(); // fecha y hora actual en el servidor
+
+        ->first(); // coloca la columna al principio
+
+modificacion de variables en las tablas
+    $table->string("name"); a ->text
+    php artisan make:migration alter_to_posts_table
+
+    $table->mediumtext("body")
+        ->change(); // cambia el tipo de dato de la columna / si tiene modificadores agregarlos tambien
+
+renombrar columna
+    se necesita un paquete composer require doctrine/dbal
+    php artisan make:migration rename_to_posts_table
+    $table->renameColumn("name","title"); pasa de name a title
+
+eliminar columna
+    php artisan make:migration drop_to_posts_table
+    $table->dropColumn("name");
+    es destructivo borra la informacion de la columna y no se puede recuperar con un rollback
+
+indice en las migraciones
+    
+
 
 
 */

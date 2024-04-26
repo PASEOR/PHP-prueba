@@ -12,18 +12,23 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            
+           /* $table->id();*/
+            $table->bigInteger('id')  //crear llaves primarias de tipo bigIncrements
+                ->autoIncrement ();
+
             $table->string('title');
 
             $table->string('slug')
                 ->unique();
             
-            $table->string('slog');
-            
             $table->longText('body');
             
+            $table->timestamp("published_at");
+
             $table->timestamps();
+            
+            //indice
+            //$table->primary('id');
         });
     }
 
