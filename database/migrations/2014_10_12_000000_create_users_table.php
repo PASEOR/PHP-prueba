@@ -101,7 +101,33 @@ eliminar columna
 
 indice en las migraciones
     
+eliminar indices
+    php artisan make:migration alter_to_posts_table
+    $table->dropUnique('posts_slug_inique') nombre de la llave o clave
 
+    metodo down
+    $table->unique('slug'); // crea un indice unico
 
+llaves foraneas
+
+eliminacion de llaves foraneas == indices
+para crear llave forane deben tener un indice
+
+php  artisan make:migration alter_to_posts_table
+   op1 $table->dropForeign('posts_user_id_foreign'); // nombre de la llave foranea = indice nombre
+   op2 $table->dropForeign(['user_id']); // nombre de la columna que contiene la llave foranea
+       $table->dropForeign(['category_id']); // nombre de la columna que contiene la llave foranea
+   down 
+    $table->foreign('user_id')
+          ->references('id')
+          ->on('users')
+          ->onDelete('cascade') // si se elimina un usuario se eliminan todos los posts
+          ->onUpdate('cascade'); // si se actualiza un usuario se actualizan todos los posts
+    
+    $table->foreign('category_id')
+         ->references('id')
+         ->on('categories')
+         ->onDelete('set null')// si se elimina una categoria se pone null en la columna category_id
+         ->onUpdate('no action'); // si se actualiza una categoria no se actualiza la columna category_id
 
 */

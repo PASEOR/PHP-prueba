@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeControler;
 use App\Http\Controllers\PostControler;
 use Illuminate\Support\Facades\Route;
+//facades es una clase que nos permite interactuar con la clase de laravel
+use Illuminate\Support\Facades\DB; // para trabajar con eloquent
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeControler::class);  //Mostrar la vista de inicio
 
-//ruta para mostrar el listado de registro 
+/*//ruta para mostrar el listado de registro 
 Route::get('/posts',[PostControler::class, 'index'])
         ->name('posts.index');
 
@@ -44,4 +46,15 @@ Route::put('/posts/{post}', [PostControler::class, 'update'])
 //ruta para eliminar un registro
 Route::delete('/posts/{post}', [PostControler::class, 'destroy'])
         ->name('posts.destroy');
+*/
+Route::resource('posts', PostControler::class);
+
+/*interactuar con la base de datos recuperar editar <eliminar></eliminar> */
+
+Route::get('/prueba', function(){
+    return 'hola desde la paginade prueba';
+});
+
+// interactuar con la BD 1. generador de consultas de laravel 2. Eloquent ORM (Object-relational mapping)
+
 
