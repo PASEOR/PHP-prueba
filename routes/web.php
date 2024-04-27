@@ -50,11 +50,23 @@ Route::delete('/posts/{post}', [PostControler::class, 'destroy'])
 Route::resource('posts', PostControler::class);
 
 /*interactuar con la base de datos recuperar editar <eliminar></eliminar> */
+// interactuar con la BD 1. generador de consultas de laravel 2. Eloquent ORM (Object-relational mapping)
+//para verlo en el navegador extension json formater
+/*Route::get('/prueba', function(){
+    $categories = DB::table('categories')
+                ->where('id', '>=' ,2)
+                ->get(); //coleccion de registros
+                //->first(); //para obtener un solo registro
+    return $categories[0]->name;
+});
+/*Route::get('/prueba', function(){
+        $categories = DB::table('categories')->find(4); //para obtener un registro con el id
+        return $categories->name;
+});*/
 
 Route::get('/prueba', function(){
-    return 'hola desde la paginade prueba';
+    $categories = DB::table('categories')
+                ->where('id', '>' ,2)
+                ->pluck('name', 'id'); //para obtener un solo campo de la tabla
+    return $categories;
 });
-
-// interactuar con la BD 1. generador de consultas de laravel 2. Eloquent ORM (Object-relational mapping)
-
-
