@@ -88,3 +88,14 @@ Route::resource('posts', PostControler::class);
                     }
                 });
 });*/
+
+//trabajar con data truncada
+Route::get('/prueba', function(){
+        DB::table('users')
+        ->orderBy('id') //para ordenar los registros 
+        ->lazy()->each(function($user){  //metodo lazy devuelve una coleccion de datos
+                echo $user->name . '<br>';
+        }); 
+});
+
+
