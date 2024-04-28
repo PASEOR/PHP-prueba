@@ -49,6 +49,7 @@ Route::delete('/posts/{post}', [PostControler::class, 'destroy'])
 */
 Route::resource('posts', PostControler::class);
 
+
 /*interactuar con la base de datos recuperar editar <eliminar></eliminar> */
 // interactuar con la BD 1. generador de consultas de laravel 2. Eloquent ORM (Object-relational mapping)
 //para verlo en el navegador extension json formater
@@ -64,9 +65,26 @@ Route::resource('posts', PostControler::class);
         return $categories->name;
 });*/
 
-Route::get('/prueba', function(){
+/*Route::get('/prueba', function(){
     $categories = DB::table('categories')
                 ->where('id', '>' ,2)
                 ->pluck('name', 'id'); //para obtener un solo campo de la tabla
     return $categories;
-});
+});*/
+
+
+//factory para crear registros de manera aleatoria en la base de datos 
+// \app\Models\Post::factory()->count(50)->create(); //crear 50 registros esto se coloca en la capeta database/seeders/databaseseeder.php
+/*para recuperar muchos datos, trabajar con datos truncados de 100 en 100 o una cantidad adecuada */
+
+/*Route::get('/prueba', function(){
+        
+        DB::table('users')
+                ->orderBy('id', 'des') //para ordenar los registros por cualquier campo
+                //>chunkById(100, function($users){ //metodo chunkById para trabajar actualizar los registro
+                ->chunk(100, function($users){ //metodo chunk para trabajar con muchos datos
+                    foreach($users as $user){  
+                        echo $user->name . '<br>';
+                    }
+                });
+});*/
