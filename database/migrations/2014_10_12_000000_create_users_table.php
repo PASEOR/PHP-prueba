@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+           //$table->interger('rating')->default(0); // valor por defecto
+            //
+
             $table->rememberToken();
             $table->timestamps();
         });
